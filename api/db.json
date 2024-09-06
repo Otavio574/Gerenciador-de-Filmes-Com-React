@@ -1,12 +1,22 @@
 {
   "movies": [
     {
-      "title": "Comedor de cu",
+      "title": "Clube da Luta",
       "year": 1999,
       "id": 1
     },
     {
-      "title": "FC",
+      "title": "Seven",
+      "year": 1995,
+      "id": 2
+    },
+    {
+      "title": "Bastardos Inglórios",
+      "year": 2009,
+      "id": 3
+    },
+    {
+      "title": "American Pie",
       "year": 1999,
       "id": 4
     }

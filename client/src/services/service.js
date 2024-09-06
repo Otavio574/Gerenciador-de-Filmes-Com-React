@@ -1,47 +1,55 @@
-const API_URL = '/movies';
+import axios from 'axios'
 
+const API_URL = '/movies'
+
+// Função para obter todos os filmes
 const getMovies = async () => {
-  const response = await fetch(API_URL);
-  if (!response.ok) throw new Error('Erro ao buscar filmes');
-  return response.json();
-};
+  try {
+    const response = await axios.get(API_URL)
+    return response.data // `axios` já retorna os dados na propriedade `data`
+  } catch (error) {
+    throw new Error('Erro ao buscar filmes')
+  }
+}
 
+// Função para obter um filme pelo ID
 const getMovieById = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`);
-  if (!response.ok) throw new Error('Erro ao buscar filme');
-  return response.json();
-};
+  try {
+    const response = await axios.get(`${API_URL}/${id}`)
+    return response.data
+  } catch (error) {
+    throw new Error('Erro ao buscar filme')
+  }
+}
 
+// Função para adicionar um novo filme
 const addMovie = async (movie) => {
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(movie),
-  });
-  if (!response.ok) throw new Error('Erro ao adicionar filme');
-  return response.json();
-};
+  try {
+    const response = await axios.post(API_URL, movie)
+    return response.data
+  } catch (error) {
+    throw new Error('Erro ao adicionar filme')
+  }
+}
 
+// Função para atualizar um filme existente
 const updateMovie = async (id, movie) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(movie),
-  });
-  if (!response.ok) throw new Error('Erro ao atualizar filme');
-  return response.json();
-};
+  try {
+    const response = await axios.put(`${API_URL}/${id}`, movie)
+    return response.data
+  } catch (error) {
+    throw new Error('Erro ao atualizar filme')
+  }
+}
 
+// Função para deletar um filme
 const deleteMovie = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: 'DELETE',
-  });
-  if (!response.ok) throw new Error('Erro ao excluir filme');
-};
+  try {
+    await axios.delete(`${API_URL}/${id}`)
+  } catch (error) {
+    throw new Error('Erro ao excluir filme')
+  }
+}
 
 export default {
   getMovies,
@@ -49,4 +57,4 @@ export default {
   addMovie,
   updateMovie,
   deleteMovie,
-};
+}
