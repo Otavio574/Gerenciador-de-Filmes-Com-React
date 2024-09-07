@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Form />
         <ItemList />
       </main>
     </div>
