@@ -5,7 +5,7 @@ import useInfinityScroll from '../../hooks/useInfinityScroll'
 
 const ItemList = () => {
   const { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading } = useMovies()
-  const [editingMovie, setEditingMovie] = useState(null)
+  const [editingMovieId, setEditingMovieId] = useState(null) // Define o ID do filme sendo editado
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
   const [newTitle, setNewTitle] = useState('')
@@ -45,38 +45,39 @@ const ItemList = () => {
   }
 
   const handleEdit = (movie) => {
-    setEditingMovie(movie)
+    setEditingMovieId(movie.id) // Armazena o ID do filme que está sendo editado
     setTitle(movie.title)
     setYear(movie.year)
   }
 
   const handleChange = async (e) => {
     e.preventDefault()
-    if (!editingMovie) return
+    if (!editingMovieId) return
 
-    const updatedMovie = { ...editingMovie, title, year }
-    await updateMovie(editingMovie.id, updatedMovie)
-    setEditingMovie(null)
+    const updatedMovie = { id: editingMovieId, title, year }
+    await updateMovie(editingMovieId, updatedMovie)
+    setEditingMovieId(null)
     setTitle('')
     setYear('')
   }
 
   const handleDelete = async (id) => {
     await deleteMovie(id)
-    setSuccessMessage('Filme Deletado com sucesso') // Mensagem de sucesso
-    setTimeout(() => setDeleteMessage(''), 3000)
+    setSuccessMessage('Filme deletado com sucesso') // Mensagem de sucesso
+    setTimeout(() => setSuccessMessage(''), 3000)
   }
 
   const cancelEdit = () => {
-    setEditingMovie(null)
+    setEditingMovieId(null)
     setTitle('')
     setYear('')
   }
 
   return (
-    <div className="item-list"> 
+    <div className="item-list">
       {/* Mensagem de sucesso */}
       {successMessage && <div className="success-message">{successMessage}</div>}
+      
       {/* Formulário para adicionar um novo filme */}
       <form onSubmit={handleAddSubmit} className="add-form">
         <input
@@ -96,36 +97,39 @@ const ItemList = () => {
         <button type="submit">Adicionar Filme</button>
       </form>
 
-      {/* Formulário para editar um filme existente */}
-      {editingMovie && (
-        <form onSubmit={handleChange} className="edit-form">
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Título"
-            required
-          />
-          <input
-            type="number"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder="Ano"
-            required
-          />
-          <button type="submit">Salvar</button>
-          <button type="button" onClick={cancelEdit}>Cancelar</button>
-        </form>
-      )}
-
       {/* Lista de filmes */}
       {movies.map((movie) => (
         <div key={movie.id} className="item-list-item">
           <div className="item-list-content">
-            <h2 className="item-list-title">{movie.title}</h2>
-            <p className="item-list-year">{movie.year}</p>
-            <button onClick={() => handleEdit(movie)}>Editar</button>
-            <button onClick={() => handleDelete(movie.id)}>Excluir</button>
+            {editingMovieId === movie.id ? (
+              // Exibe o formulário de edição diretamente no item da lista
+              <form onSubmit={handleChange} className="edit-form">
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Título"
+                  required
+                />
+                <input
+                  type="number"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  placeholder="Ano"
+                  required
+                />
+                <button type="submit">Salvar</button>
+                <button type="button" onClick={cancelEdit}>Cancelar</button>
+              </form>
+            ) : (
+              // Exibe os detalhes do filme quando não está em modo de edição
+              <>
+                <h2 className="item-list-title">{movie.title}</h2>
+                <p className="item-list-year">{movie.year}</p>
+                <button onClick={() => handleEdit(movie)}>Editar</button>
+                <button onClick={() => handleDelete(movie.id)}>Excluir</button>
+              </>
+            )}
           </div>
         </div>
       ))}
