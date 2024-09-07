@@ -3,15 +3,19 @@ import axios from 'axios'
 const API_URL = '/movies'
 
 // Função para obter todos os filmes
-const getMovies = async () => {
+const getMovies = async (page = 1, moviesPerPage = 5) => {
   try {
-    const response = await axios.get(API_URL)
+    const response = await axios.get(API_URL, {
+      params: {
+        _page: page,
+        _limit: moviesPerPage,
+      }
+    })
     return response.data // `axios` já retorna os dados na propriedade `data`
   } catch (error) {
     throw new Error('Erro ao buscar filmes')
   }
 }
-
 // Função para obter um filme pelo ID
 const getMovieById = async (id) => {
   try {

@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import useMovies from '../../hooks/useMovies'
 import './ItemList.css'
+import useInfinityScroll from '../../hooks/useInfinityScroll'
 
 const ItemList = () => {
-  const { movies, addMovie, deleteMovie, updateMovie, loading } = useMovies()
+  const { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading } = useMovies()
   const [editingMovie, setEditingMovie] = useState(null)
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
   const [newTitle, setNewTitle] = useState('')
   const [newYear, setNewYear] = useState('')
-  
+
+  // Função para carregar mais filmes
+  const fetchMoreMovies = useCallback(async (page) => {
+    const moreDataAvailable = await fetchMovies(page)
+    return moreDataAvailable
+  }, [fetchMovies])
+
+  // Configura o infinite scroll
+  const { hasMore } = useInfinityScroll(fetchMoreMovies)
+
   const handleAddSubmit = async (e) => {
     e.preventDefault()
     if (newTitle === '' || newYear === '') {
@@ -105,6 +115,9 @@ const ItemList = () => {
           </div>
         </div>
       ))}
+
+      {loading && <p>Carregando...</p>}
+      {!hasMore && !loading && <p>Sem mais filmes para carregar</p>}
     </div>
   )
 }
