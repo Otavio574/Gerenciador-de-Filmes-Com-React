@@ -4,3 +4,21 @@
     margin: 0;
   }
   
+
+  .success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .delete-confirmation {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .delete-confirmation p {
+    margin: 0;
+  }
+  

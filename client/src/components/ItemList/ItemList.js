@@ -10,6 +10,7 @@ const ItemList = () => {
   const [year, setYear] = useState('')
   const [newTitle, setNewTitle] = useState('')
   const [newYear, setNewYear] = useState('')
+  const [successMessage, setSuccessMessage] = useState('') // Novo estado para mensagem de sucesso
 
   // Função para carregar mais filmes
   const fetchMoreMovies = useCallback(async (page) => {
@@ -36,6 +37,8 @@ const ItemList = () => {
       await addMovie(newMovie)
       setNewTitle('')
       setNewYear('')
+      setSuccessMessage('Filme adicionado com sucesso') // Mensagem de sucesso
+      setTimeout(() => setSuccessMessage(''), 3000) // Limpa a mensagem após 3 segundos
     } catch (error) {
       console.error('Erro ao adicionar o filme: ', error)
     }
@@ -60,10 +63,20 @@ const ItemList = () => {
 
   const handleDelete = async (id) => {
     await deleteMovie(id)
+    setSuccessMessage('Filme Deletado com sucesso') // Mensagem de sucesso
+    setTimeout(() => setDeleteMessage(''), 3000)
+  }
+
+  const cancelEdit = () => {
+    setEditingMovie(null)
+    setTitle('')
+    setYear('')
   }
 
   return (
-    <div className="item-list">
+    <div className="item-list"> 
+      {/* Mensagem de sucesso */}
+      {successMessage && <div className="success-message">{successMessage}</div>}
       {/* Formulário para adicionar um novo filme */}
       <form onSubmit={handleAddSubmit} className="add-form">
         <input
@@ -101,6 +114,7 @@ const ItemList = () => {
             required
           />
           <button type="submit">Salvar</button>
+          <button type="button" onClick={cancelEdit}>Cancelar</button>
         </form>
       )}
 

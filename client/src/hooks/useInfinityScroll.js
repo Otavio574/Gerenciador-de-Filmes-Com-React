@@ -1,39 +1,41 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'
 
 // Hook para carregar mais dados
 const useInfinityScroll = (fetchMoreData) => {
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const loadMore = useCallback(async () => {
-    if (!hasMore || loading) return; // Evita carregamentos simultâneos ou desnecessários
+    if (!hasMore || loading) return // Evita carregamentos simultâneos ou desnecessário
 
-    setLoading(true);
-    const moreDataAvailable = await fetchMoreData(page);
+    setLoading(true)
+    const moreDataAvailable = await fetchMoreData(page)
 
     if (!moreDataAvailable) {
-      setHasMore(false);
+      setHasMore(false)
     } else {
-      setPage(prevPage => prevPage + 1);
+      setPage((prevPage) => prevPage + 1)
     }
 
-    setLoading(false);
-  }, [fetchMoreData, hasMore, loading, page]);
+    setLoading(false)
+  }, [fetchMoreData, hasMore, loading, page])
 
   useEffect(() => {
     const handleScroll = () => {
-      const nearBottom = window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100;
+      const nearBottom =
+        window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 100
       if (nearBottom) {
-        loadMore();
+        loadMore()
       }
-    };
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [loadMore]);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [loadMore])
 
-  return { page, hasMore, loading };
-};
+  return { page, hasMore, loading }
+}
 
-export default useInfinityScroll;
+export default useInfinityScroll
