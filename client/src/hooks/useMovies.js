@@ -7,7 +7,7 @@ const useMovies = () => {
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
 
-  const fetchMovies = useCallback(async (page = 1, moviesPerPage = 5) => {
+  const fetchMovies = useCallback(async (page = 1, moviesPerPage = 6) => {
     setLoading(true)
     try {
       // Verifica se a página já foi carregada para evitar chamadas duplicadas

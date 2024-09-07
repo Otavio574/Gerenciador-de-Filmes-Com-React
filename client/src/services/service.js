@@ -9,7 +9,7 @@ const getMovies = async (page = 1, moviesPerPage = 5) => {
       params: {
         _page: page,
         _limit: moviesPerPage,
-      }
+      },
     })
     return response.data // `axios` já retorna os dados na propriedade `data`
   } catch (error) {
