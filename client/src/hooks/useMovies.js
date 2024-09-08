@@ -37,7 +37,6 @@ const useMovies = () => {
       setLoading(false)
     }
   }, [])
-
   useEffect(() => {
     fetchMovies(page)
   }, [page, fetchMovies])
@@ -51,7 +50,6 @@ const useMovies = () => {
     }
   }
   
-
   const deleteMovie = async (id) => {
     try {
       await service.deleteMovie(id)
@@ -60,7 +58,6 @@ const useMovies = () => {
       console.error('Erro ao excluir filme:', error)
     }
   }
-
   const updateMovie = async (id, updatedMovie) => {
     try {
       await service.updateMovie(id, updatedMovie)
@@ -71,8 +68,6 @@ const useMovies = () => {
       console.error('Erro ao atualizar filme:', error)
     }
   }
-
   return { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading }
 }
-
 export default useMovies
