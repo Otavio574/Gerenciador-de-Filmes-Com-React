@@ -37,9 +37,8 @@ const ItemList = () => {
       await addMovie(newMovie)
       setNewTitle('')
       setNewYear('')
-      setSuccessMessage('Filme adicionado com sucesso') // Mensagem de sucesso
-      setTimeout(() => setSuccessMessage(''), 3000) // Limpa a mensagem após 3 segundos
-    } catch (error) {
+      alert('Filme adicionado com sucesso') // Mensagem de sucesso
+      } catch (error) {
       console.error('Erro ao adicionar o filme: ', error)
     }
   }
@@ -59,11 +58,13 @@ const ItemList = () => {
     setEditingMovieId(null)
     setTitle('')
     setYear('')
+    alert('Filme editado com sucesso') // Mensagem de sucesso
+    //setTimeout(() => setSuccessMessage(''), 3000)
   }
 
   const handleDelete = async (id) => {
     await deleteMovie(id)
-    setSuccessMessage('Filme deletado com sucesso') // Mensagem de sucesso
+    alert('Filme excluído com sucesso') // Mensagem de sucesso
     setTimeout(() => setSuccessMessage(''), 3000)
   }
 
@@ -96,7 +97,7 @@ const ItemList = () => {
         />
         <button type="submit">Adicionar Filme</button>
       </form>
-
+  
       {/* Lista de filmes */}
       {movies.map((movie) => (
         <div key={movie.id} className="item-list-item">
@@ -126,18 +127,20 @@ const ItemList = () => {
               <>
                 <h2 className="item-list-title">{movie.title}</h2>
                 <p className="item-list-year">{movie.year}</p>
-                <button onClick={() => handleEdit(movie)}>Editar</button>
-                <button onClick={() => handleDelete(movie.id)}>Excluir</button>
+                <div className="item-list-actions">
+                  <button onClick={() => handleEdit(movie)}>Editar</button>
+                  <button onClick={() => handleDelete(movie.id)}>Excluir</button>
+                </div>
               </>
             )}
           </div>
         </div>
       ))}
-
+  
       {loading && <p>Carregando...</p>}
       {!hasMore && !loading && <p>Sem mais filmes para carregar</p>}
     </div>
   )
-}
+}  
 
 export default ItemList

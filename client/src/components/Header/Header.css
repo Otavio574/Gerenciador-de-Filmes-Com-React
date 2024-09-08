@@ -1,7 +1,32 @@
+/* Header.css */
+
 .header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-    text-align: center;
+  background-color: #007bff; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  border-bottom: 4px solid #0056b3; /* Borda inferior para destacar o cabeçalho */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+}
+
+.header h1 {
+  margin: 0; /* Remove margens padrão */
+  font-size: 2.5em; /* Tamanho da fonte do título */
+  font-weight: bold; /* Negrito */
+}
+
+.header p {
+  margin: 10px 0 0; /* Margem superior e inferior */
+  font-size: 1.2em; /* Tamanho da fonte do subtítulo */
+  font-style: italic; /* Itálico */
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.8em; /* Ajusta o tamanho da fonte para telas menores */
   }
-  
+
+  .header p {
+    font-size: 1em; /* Ajusta o tamanho da fonte para telas menores */
+  }
+}

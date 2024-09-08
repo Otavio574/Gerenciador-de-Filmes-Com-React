@@ -1,25 +1,74 @@
-.item-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+/* ItemList.css */
 
-  .success-message {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  
-  
-  .delete-confirmation {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .delete-confirmation p {
-    margin: 0;
-  }
-  
+.item-list {
+  padding: 20px; /* Espaçamento interno da lista */
+}
+
+.item-list-item {
+  background-color: #f8f9fa; /* Cor de fundo dos itens da lista */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px; /* Espaçamento interno dos itens */
+  margin-bottom: 15px; /* Margem inferior para separar os itens */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+  display: flex; /* Flexbox para layout */
+  flex-direction: column; /* Alinha os itens na coluna */
+}
+
+.item-list-content {
+  display: flex; /* Flexbox para o conteúdo */
+  flex-direction: column; /* Alinha os itens na coluna */
+  align-items: flex-start; /* Alinha os itens no início do eixo transversal */
+}
+
+.item-list-title {
+  font-size: 1.5em; /* Tamanho da fonte do título */
+  margin: 0 0 5px; /* Margem inferior do título */
+}
+
+.item-list-year {
+  font-size: 1.2em; /* Tamanho da fonte do ano */
+  color: #6c757d; /* Cor do texto do ano */
+  margin: 0 0 10px; /* Margem inferior do ano */
+}
+
+.item-list-actions {
+  display: flex; /* Flexbox para alinhar os botões horizontalmente */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+button {
+  background-color: #007bff; /* Cor de fundo dos botões */
+  color: white; /* Cor do texto dos botões */
+  border: none; /* Remove a borda padrão dos botões */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 8px 12px; /* Espaçamento interno dos botões */
+  font-size: 0.9em; /* Tamanho da fonte dos botões */
+  cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cor de fundo dos botões ao passar o mouse */
+}
+
+.add-form input,
+.edit-form input {
+  margin-right: 10px; /* Margem entre os campos de entrada e o botão */
+}
+
+.add-form button,
+.edit-form button {
+  padding: 10px; /* Aumenta o padding para maior altura dos inputs */
+  font-size: 1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  width: 200px; /* Ajusta a largura dos inputs */
+  margin-right: 10px; /* Margem entre os campos de entrada e o botão */
+}
+
+.success-message {
+  background-color: #d4edda; /* Cor de fundo da mensagem de sucesso */
+  color: #155724; /* Cor do texto da mensagem de sucesso */
+  border: 1px solid #c3e6cb; /* Borda da mensagem de sucesso */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno da mensagem */
+  margin-bottom: 15px; /* Margem inferior da mensagem */
+}
