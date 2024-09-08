@@ -13,12 +13,11 @@ Este projeto é uma aplicação de gerenciamento de filmes desenvolvida com Reac
 ## Pré-requisitos
 - **Node.js**: Certifique-se de que o Node.js esteja instalado na sua máquina.
 - **npm**: Gerenciador de pacotes utilizado para instalar as dependências do projeto.
-Instalação
 
 ## Instalação
 1. Clone o repositório:
     ```bash
-    git clone [https://github.com/Otavio574/Gerenciador-de-Filmes.git](https://github.com/Otavio574/Gerenciador-de-Filmes-Com-React)
+    git clone https://github.com/Otavio574/Gerenciador-de-Filmes-Com-React
     ```
 ### Frontend
 2. Navegue para o diretório do projeto:
@@ -36,7 +35,7 @@ Instalação
     npm start
     ```
 
-5. Abra o navegador e acesse [http://localhost:3000](http://localhost:3000) para ver a aplicação em funcionamento.
+5. Abra o navegador e acesse http://localhost:3000 para ver a aplicação em funcionamento.
 
 ### Backend
 
@@ -55,7 +54,7 @@ Instalação
     npm start
     ```
 
-    O servidor estará rodando em [http://localhost:5000](http://localhost:5000) por padrão. 
+    O servidor estará rodando em http://localhost:5000 por padrão. 
 
 
 ## Uso
@@ -73,9 +72,34 @@ Clique em "Excluir" ao lado de um filme. Será exibida uma confirmação para ga
 Aplique o scroll infinito para carregar mais filmes automaticamente à medida que o usuário rola para baixo.
 
 # Estrutura do Projeto
-A estrutura do projeto segue um padrão organizado e modular:
+O projeto está dividido em duas partes principais: **frontend** e **backend**.
 
-## Hooks importantes
+### Diretório `client`
+
+Contém o código fonte do frontend da aplicação.
+
+- **/public**: Arquivos estáticos como `index.html`, `favicon.ico`, e outros recursos de frontend.
+- **/src**: Contém os componentes React, serviços, e estilos.
+  - **/components**: Componentes React reutilizáveis.
+  - **/hooks**: Hooks personalizados para lógica reutilizável.
+    - **useMovies.js**: Hook customizado para gerenciar a listagem, adição, atualização e exclusão de filmes, incluindo suporte para scroll infinito.
+    - **useInfinityScroll.js**: Hook customizado para implementar o scroll infinito.
+  - **/services**: Arquivos para lidar com requisições HTTP.
+  - **/styles**: Arquivos CSS para estilização.
+  - **App.js**: Componente principal da aplicação.
+  - **index.js**: Ponto de entrada do frontend.
+
+### Diretório `api`
+
+Contém o código fonte do backend da aplicação (se aplicável).
+
+- **/src**: Código do servidor.
+  - **index.js**: Arquivo principal para configuração e inicialização do servidor.
+  - **routes.js**: Arquivo para definir as rotas da API.
+- **package.json**: Gerenciador de dependências e scripts para o backend.
+- **db.json**: Banco de dados para alimentar o backend.
+
+### Hooks importantes
 
 - **useMovies.js**: Hook customizado que lida com a adição, edição, exclusão e listagem de filmes.
 - **useInfinityScroll.js**: Hook customizado para implementar o scroll infinito.
@@ -213,9 +237,17 @@ export default useInfinityScroll
 - **Axios**: Biblioteca para realizar requisições HTTP.
 - **CSS**: Para estilização dos componentes.
 - **React Hooks**: Para gerenciar o estado e efeitos colaterais.
+- **Node JS**: Para o desenvolvimento do backend e gerenciamento de pacotes.
+- **Sweet Alert 2**: Para a exibição de mensagens de sucesso ou erro.
 
 ## Contribuição
-Sinta-se à vontade para contribuir com melhorias. Para isso, faça um fork do repositório, realize suas alterações e envie um pull request.
+Sinta-se à vontade para contribuir com melhorias. Para isso:
+1. Faça um fork do repositório.
+2. Crie uma branch para suas alterações (`git checkout -b feature/novidade`).
+3. Faça suas alterações e commit (`git commit -am 'Adiciona nova funcionalidade'`).
+4. Envie a branch para o repositório remoto (`git push origin feature/novidade`).
+5. Abra um Pull Request no GitHub e descreva suas alterações.
+
 
 ## Licença
 Este projeto está licenciado sob a MIT License.
