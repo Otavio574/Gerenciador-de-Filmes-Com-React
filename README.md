@@ -68,3 +68,53 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Gerenciador de Filmes com React
+
+## Descrição
+Este projeto é uma aplicação de gerenciamento de filmes desenvolvida com React. A aplicação permite que os usuários adicionem, editem e excluam filmes de uma lista, com suporte a scroll infinito para carregar mais filmes à medida que o usuário navega. Também há feedback visual de sucesso para cada ação realizada, garantindo uma experiência de usuário clara e direta.
+
+## Funcionalidades
+Adicionar Filme: Adicione novos filmes preenchendo o formulário na parte superior da página.
+Editar Filme Inline: Edite filmes diretamente na lista. Ao clicar em "Editar", um formulário é aberto no próprio item do filme. Possui botões de Salvar e Cancelar para facilitar a interação.
+Excluir Filme: Exclua filmes da lista com apenas um clique. Há uma confirmação antes de deletar o filme definitivamente.
+Feedback Visual: Mensagens de sucesso para as operações de adição, edição e exclusão de filmes, que desaparecem automaticamente após 3 segundos.
+Scroll Infinito: Carregue mais filmes à medida que rola a página, melhorando a performance e a usabilidade.
+
+## Pré-requisitos
+Node.js: Certifique-se de que o Node.js esteja instalado na sua máquina.
+npm: Gerenciador de pacotes utilizado para instalar as dependências do projeto.
+Instalação
+
+## Instalação
+
+### Uso
+
+### Adicionar Filme
+
+### Editar Filme Inline
+
+### Excluir Filme
+
+### Scroll infinito
+
+# Estrutura do Projeto
+A estrutura do projeto segue um padrão organizado e modular:
+
+## Hooks importantes
+
+useMovies.js: Hook customizado que lida com a adição, edição, exclusão e listagem de filmes.
+useInfinityScroll.js: Hook customizado para implementar o scroll infinito.
+
+# Exemplos de código
+
+## Formulário de edição InLine
+
+## Função de edição
+
+## Tecnologias Utilizadas
+
+## Contribuição
+
+## Licença
