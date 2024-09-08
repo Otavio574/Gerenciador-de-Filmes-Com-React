@@ -208,8 +208,6 @@ const useInfinityScroll = (fetchMoreData) => {
 export default useInfinityScroll
 ```
 
-## Função de edição
-
 ## Tecnologias Utilizadas
 - **React**: Biblioteca principal para construção da interface de usuário.
 - **Axios**: Biblioteca para realizar requisições HTTP.
