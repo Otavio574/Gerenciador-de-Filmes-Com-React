@@ -4,7 +4,8 @@ import './ItemList.css'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
 
 const ItemList = () => {
-  const { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading } = useMovies()
+  const { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading } =
+    useMovies()
   const [editingMovieId, setEditingMovieId] = useState(null) // Define o ID do filme sendo editado
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
@@ -13,10 +14,13 @@ const ItemList = () => {
   const [successMessage, setSuccessMessage] = useState('') // Novo estado para mensagem de sucesso
 
   // Função para carregar mais filmes
-  const fetchMoreMovies = useCallback(async (page) => {
-    const moreDataAvailable = await fetchMovies(page)
-    return moreDataAvailable
-  }, [fetchMovies])
+  const fetchMoreMovies = useCallback(
+    async (page) => {
+      const moreDataAvailable = await fetchMovies(page)
+      return moreDataAvailable
+    },
+    [fetchMovies]
+  )
 
   // Configura o infinite scroll
   const { hasMore } = useInfinityScroll(fetchMoreMovies)
@@ -38,7 +42,7 @@ const ItemList = () => {
       setNewTitle('')
       setNewYear('')
       alert('Filme adicionado com sucesso') // Mensagem de sucesso
-      } catch (error) {
+    } catch (error) {
       console.error('Erro ao adicionar o filme: ', error)
     }
   }
@@ -77,8 +81,10 @@ const ItemList = () => {
   return (
     <div className="item-list">
       {/* Mensagem de sucesso */}
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
+
       {/* Formulário para adicionar um novo filme */}
       <form onSubmit={handleAddSubmit} className="add-form">
         <input
@@ -97,7 +103,7 @@ const ItemList = () => {
         />
         <button type="submit">Adicionar Filme</button>
       </form>
-  
+
       {/* Lista de filmes */}
       {movies.map((movie) => (
         <div key={movie.id} className="item-list-item">
@@ -120,7 +126,9 @@ const ItemList = () => {
                   required
                 />
                 <button type="submit">Salvar</button>
-                <button type="button" onClick={cancelEdit}>Cancelar</button>
+                <button type="button" onClick={cancelEdit}>
+                  Cancelar
+                </button>
               </form>
             ) : (
               // Exibe os detalhes do filme quando não está em modo de edição
@@ -129,18 +137,20 @@ const ItemList = () => {
                 <p className="item-list-year">{movie.year}</p>
                 <div className="item-list-actions">
                   <button onClick={() => handleEdit(movie)}>Editar</button>
-                  <button onClick={() => handleDelete(movie.id)}>Excluir</button>
+                  <button onClick={() => handleDelete(movie.id)}>
+                    Excluir
+                  </button>
                 </div>
               </>
             )}
           </div>
         </div>
       ))}
-  
+
       {loading && <p>Carregando...</p>}
       {!hasMore && !loading && <p>Sem mais filmes para carregar</p>}
     </div>
   )
-}  
+}
 
 export default ItemList

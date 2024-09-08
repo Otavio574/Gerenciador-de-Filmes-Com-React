@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "The Shawshank Redemption",
-      "year": 1994
-    },
-    {
       "id": 2,
       "title": "The Godfather",
       "year": 1972
@@ -93,12 +88,7 @@
     {
       "id": 19,
       "title": "Inglourious Basterds",
-      "year": 2009
-    },
-    {
-      "id": 20,
-      "title": "Jaws",
-      "year": 1975
+      "year": "2008"
     }
   ]
 }

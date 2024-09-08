@@ -12,23 +12,24 @@ const useMovies = () => {
     try {
       // Verifica se a página já foi carregada para evitar chamadas duplicadas
       const moviesList = await service.getMovies(page, moviesPerPage)
-      
+
       // Se a lista de filmes retornada for menor que o tamanho da página, significa que não há mais filmes
       if (moviesList.length < moviesPerPage) {
         setHasMore(false)
       }
-      
+
       // Atualiza o estado dos filmes
       setMovies((prevMovies) => {
         // Filtra filmes duplicados antes de atualizar o estado
         const newMovies = [...prevMovies, ...moviesList]
-        const uniqueMovies = Array.from(new Set(newMovies.map(movie => movie.id)))
-          .map(id => {
-            return newMovies.find(movie => movie.id === id)
-          })
+        const uniqueMovies = Array.from(
+          new Set(newMovies.map((movie) => movie.id))
+        ).map((id) => {
+          return newMovies.find((movie) => movie.id === id)
+        })
         return uniqueMovies
       })
-      
+
       return moviesList.length > 0 // Retorna true se houver mais filmes
     } catch (error) {
       console.error('Erro ao buscar filmes: ', error)
@@ -40,7 +41,7 @@ const useMovies = () => {
   useEffect(() => {
     fetchMovies(page)
   }, [page, fetchMovies])
-  
+
   const addMovie = async (newMovie) => {
     try {
       const addedMovie = await service.addMovie(newMovie)
@@ -49,11 +50,11 @@ const useMovies = () => {
       console.error('Erro ao adicionar filme:', error)
     }
   }
-  
+
   const deleteMovie = async (id) => {
     try {
       await service.deleteMovie(id)
-      setMovies((prevMovies) => prevMovies.filter(movie => movie.id !== id))
+      setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id))
     } catch (error) {
       console.error('Erro ao excluir filme:', error)
     }
