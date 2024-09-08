@@ -1,94 +1,204 @@
 {
   "movies": [
     {
-      "id": 2,
-      "title": "The Godfather",
-      "year": 1972
-    },
-    {
-      "id": 3,
-      "title": "The Dark Knight",
-      "year": 2008
-    },
-    {
-      "id": 4,
-      "title": "Pulp Fiction",
-      "year": 1994
-    },
-    {
-      "id": 5,
-      "title": "Forrest Gump",
-      "year": 1994
-    },
-    {
-      "id": 6,
-      "title": "Inception",
-      "year": 2010
-    },
-    {
-      "id": 7,
-      "title": "The Matrix",
-      "year": 1999
-    },
-    {
-      "id": 8,
-      "title": "Fight Club",
-      "year": 1999
-    },
-    {
-      "id": 9,
-      "title": "The Lord of the Rings: The Return of the King",
-      "year": 2003
-    },
-    {
-      "id": 10,
-      "title": "The Godfather: Part II",
-      "year": 1974
-    },
-    {
-      "id": 11,
-      "title": "The Avengers",
-      "year": 2012
-    },
-    {
-      "id": 12,
-      "title": "The Lion King",
-      "year": 1994
-    },
-    {
-      "id": 13,
-      "title": "Interstellar",
-      "year": 2014
-    },
-    {
-      "id": 14,
-      "title": "Gladiator",
-      "year": 2000
-    },
-    {
-      "id": 15,
-      "title": "The Departed",
-      "year": 2006
-    },
-    {
       "id": 16,
       "title": "Jurassic Park",
       "year": 1993
     },
     {
-      "id": 17,
-      "title": "Back to the Future",
-      "year": 1985
+      "id": 19,
+      "title": "Inglourious Bastards",
+      "year": 2008
     },
     {
-      "id": 18,
-      "title": "The Prestige",
+      "title": "Inception",
+      "year": 2002,
+      "id": 21
+    },
+    {
+      "id": 23,
+      "title": "Forrest Gump",
+      "year": 1994
+    },
+    {
+      "title": "The GodFather",
+      "year": 1972,
+      "id": 24
+    },
+    {
+      "title": "Spider Man 2",
+      "year": 2004,
+      "id": 25
+    },
+    {
+      "title": "The Lion King",
+      "year": 1994,
+      "id": 26
+    },
+    {
+      "title": "Inception",
+      "year": 2000,
+      "id": 27
+    },
+    {
+      "title": "Spider Man 3",
+      "year": 2007,
+      "id": 28
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "id": 29
+    },
+    {
+      "id": 30,
+      "title": "The Dark Knight",
+      "year": 2008
+    },
+    {
+      "id": 31,
+      "title": "Pulp Fiction",
+      "year": 1994
+    },
+    {
+      "id": 32,
+      "title": "The Shawshank Redemption",
+      "year": 1994
+    },
+    {
+      "id": 33,
+      "title": "The Matrix",
+      "year": 1999
+    },
+    {
+      "id": 34,
+      "title": "Fight Club",
+      "year": 1999
+    },
+    {
+      "id": 35,
+      "title": "Interstellar",
+      "year": 2014
+    },
+    {
+      "id": 36,
+      "title": "The Departed",
       "year": 2006
     },
     {
-      "id": 19,
+      "id": 37,
+      "title": "The Avengers",
+      "year": 2012
+    },
+    {
+      "id": 38,
+      "title": "The Social Network",
+      "year": 2010
+    },
+    {
+      "id": 39,
+      "title": "Avatar",
+      "year": 2009
+    },
+    {
+      "id": 40,
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003
+    },
+    {
+      "id": 41,
+      "title": "Gladiator",
+      "year": 2000
+    },
+    {
+      "id": 42,
+      "title": "Joker",
+      "year": 2019
+    },
+    {
+      "id": 43,
+      "title": "Parasite",
+      "year": 2019
+    },
+    {
+      "id": 44,
+      "title": "Django Unchained",
+      "year": 2012
+    },
+    {
+      "id": 45,
+      "title": "Whiplash",
+      "year": 2014
+    },
+    {
+      "id": 46,
+      "title": "Mad Max: Fury Road",
+      "year": 2015
+    },
+    {
+      "id": 47,
+      "title": "The Revenant",
+      "year": 2015
+    },
+    {
+      "id": 48,
       "title": "Inglourious Basterds",
-      "year": "2008"
+      "year": 2009
+    },
+    {
+      "id": 49,
+      "title": "A Beautiful Mind",
+      "year": 2001
+    },
+    {
+      "id": 50,
+      "title": "Casino Royale",
+      "year": 2006
+    },
+    {
+      "id": 51,
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004
+    },
+    {
+      "id": 52,
+      "title": "Her",
+      "year": 2013
+    },
+    {
+      "id": 53,
+      "title": "The Grand Budapest Hotel",
+      "year": 2014
+    },
+    {
+      "id": 54,
+      "title": "The Truman Show",
+      "year": 1998
+    },
+    {
+      "id": 55,
+      "title": "The Usual Suspects",
+      "year": 1995
+    },
+    {
+      "id": 56,
+      "title": "Good Will Hunting",
+      "year": 1997
+    },
+    {
+      "id": 57,
+      "title": "Oldboy",
+      "year": 2003
+    },
+    {
+      "id": 58,
+      "title": "Pan's Labyrinth",
+      "year": "2006"
+    },
+    {
+      "id": 59,
+      "title": "Memento",
+      "year": "2000"
     }
   ]
 }

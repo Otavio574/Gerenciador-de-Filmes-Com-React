@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import useMovies from '../../hooks/useMovies'
 import './ItemList.css'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
+import Swal from 'sweetalert2'
 
 const ItemList = () => {
   const { movies, addMovie, deleteMovie, updateMovie, fetchMovies, loading } =
@@ -41,9 +42,18 @@ const ItemList = () => {
       await addMovie(newMovie)
       setNewTitle('')
       setNewYear('')
-      alert('Filme adicionado com sucesso') // Mensagem de sucesso
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso!',
+        text: 'Filme adicionado com sucesso',
+      })
     } catch (error) {
       console.error('Erro ao adicionar o filme: ', error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Não foi possível adicionar o filme',
+      })
     }
   }
 
@@ -62,14 +72,20 @@ const ItemList = () => {
     setEditingMovieId(null)
     setTitle('')
     setYear('')
-    alert('Filme editado com sucesso') // Mensagem de sucesso
-    //setTimeout(() => setSuccessMessage(''), 3000)
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: 'Filme editado com sucesso!',
+    })
   }
 
   const handleDelete = async (id) => {
     await deleteMovie(id)
-    alert('Filme excluído com sucesso') // Mensagem de sucesso
-    setTimeout(() => setSuccessMessage(''), 3000)
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: 'Filme excluído com sucesso!',
+    })
   }
 
   const cancelEdit = () => {
@@ -136,8 +152,13 @@ const ItemList = () => {
                 <h2 className="item-list-title">{movie.title}</h2>
                 <p className="item-list-year">{movie.year}</p>
                 <div className="item-list-actions">
-                  <button onClick={() => handleEdit(movie)}>Editar</button>
-                  <button onClick={() => handleDelete(movie.id)}>
+                  <button className="edit" onClick={() => handleEdit(movie)}>
+                    Editar
+                  </button>
+                  <button
+                    className="delete"
+                    onClick={() => handleDelete(movie.id)}
+                  >
                     Excluir
                   </button>
                 </div>

@@ -1,11 +1,11 @@
 /* Header.css */
 
 .header {
-  background-color: #007bff; /* Cor de fundo */
+  background-color: #6b0101; /* Cor de fundo */
   color: white; /* Cor do texto */
   text-align: center; /* Centraliza o texto */
   padding: 20px; /* Espaçamento interno */
-  border-bottom: 4px solid #0056b3; /* Borda inferior para destacar o cabeçalho */
+  border-bottom: 4px solid #6b0101; /* Borda inferior para destacar o cabeçalho */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
 }
 

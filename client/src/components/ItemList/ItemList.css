@@ -2,16 +2,19 @@
 
 .item-list {
   padding: 20px; /* Espaçamento interno da lista */
+  background-color: #000; /* Fundo preto da lista */
+  color: #fff; /* Cor do texto da lista */
 }
 
 .item-list-item {
-  background-color: #f8f9fa; /* Cor de fundo dos itens da lista */
+  background-color: #1c1c1c; /* Cor de fundo dos itens da lista */
   border-radius: 8px; /* Bordas arredondadas */
   padding: 15px; /* Espaçamento interno dos itens */
   margin-bottom: 15px; /* Margem inferior para separar os itens */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra mais forte para profundidade */
   display: flex; /* Flexbox para layout */
   flex-direction: column; /* Alinha os itens na coluna */
+  position: relative; /* Necessário para o posicionamento absoluto dos botões */
 }
 
 .item-list-content {
@@ -27,17 +30,17 @@
 
 .item-list-year {
   font-size: 1.2em; /* Tamanho da fonte do ano */
-  color: #6c757d; /* Cor do texto do ano */
+  color: #aaa; /* Cor do texto do ano */
   margin: 0 0 10px; /* Margem inferior do ano */
 }
 
 .item-list-actions {
   display: flex; /* Flexbox para alinhar os botões horizontalmente */
   gap: 10px; /* Espaço entre os botões */
+  margin-top: 10px; /* Margem superior para separar ações dos detalhes do filme */
 }
 
-button {
-  background-color: #007bff; /* Cor de fundo dos botões */
+.item-list-actions button {
   color: white; /* Cor do texto dos botões */
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 5px; /* Bordas arredondadas */
@@ -47,21 +50,36 @@ button {
   transition: background-color 0.3s; /* Transição suave para a cor de fundo */
 }
 
-button:hover {
-  background-color: #0056b3; /* Cor de fundo dos botões ao passar o mouse */
-}
-
-.add-form input,
-.edit-form input {
-  margin-right: 10px; /* Margem entre os campos de entrada e o botão */
-}
-
-.add-form button,
-.edit-form button {
+/* Botão de adicionar */
+.add-form button {
+  background-color: #007bff; /* Cor de fundo do botão de adicionar */
+  color: white;
   padding: 10px; /* Aumenta o padding para maior altura dos inputs */
   font-size: 1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
-  width: 200px; /* Ajusta a largura dos inputs */
+  width: 150px; /* Ajusta a largura dos inputs */
   margin-right: 10px; /* Margem entre os campos de entrada e o botão */
+}
+
+.add-form button:hover {
+  background-color: #0056b3; /* Cor de fundo do botão de adicionar ao passar o mouse */
+}
+
+/* Botão de editar */
+.item-list-actions button.edit {
+  background-color: #007bff; /* Cor de fundo do botão de editar */
+}
+
+.item-list-actions button.edit:hover {
+  background-color: #0056b3; /* Cor de fundo do botão de editar ao passar o mouse */
+}
+
+/* Botão de excluir */
+.item-list-actions button.delete {
+  background-color: #dc3545; /* Cor de fundo do botão de deletar */
+}
+
+.item-list-actions button.delete:hover {
+  background-color: #c82333; /* Cor de fundo do botão de deletar ao passar o mouse */
 }
 
 .success-message {
@@ -71,4 +89,27 @@ button:hover {
   border-radius: 5px; /* Bordas arredondadas */
   padding: 10px; /* Espaçamento interno da mensagem */
   margin-bottom: 15px; /* Margem inferior da mensagem */
+}
+
+.add-form input {
+  width: 200px; /* Ajusta a largura dos campos de entrada */
+  padding: 10px; /* Adiciona padding para os campos de entrada */
+  margin-right: 10px; /* Espaço entre os campos de entrada e o botão */
+  margin-bottom: 20px;
+  font-size: 1em; /* Ajusta o tamanho da fonte para melhor legibilidade */
+}
+
+.edit-form input {
+  margin-top: 20px;
+  margin-right: 10px;
+  width: 200px; /* Mantém a largura consistente com o formulário de adicionar */
+  padding: 10px; /* Mantém o padding consistente */
+}
+
+.edit-form button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px; /* Aumenta o padding para maior altura dos inputs */
+  font-size: 1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  width: 150px; /* Ajusta a largura dos inputs */
 }
